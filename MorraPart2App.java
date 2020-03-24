@@ -14,6 +14,7 @@ public class MorraPart2App{
 		int userNumber;//input
 		int sumPMarks=0;
 		int sumCMarks=0;
+		int randNumber=0;
 		String replay; //added to play again
 
 		//objects
