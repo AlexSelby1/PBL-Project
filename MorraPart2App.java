@@ -25,21 +25,31 @@ public class MorraPart2App{
 			//inputs
 			side=JOptionPane.showInputDialog(null, "To play the game, please choose between Even or Odd. Type stop to end the game: ");
 				if(!side.equals("stop") && sumCMarks<12 && sumPMarks<12){
-					myMorraPart2.setSide(side);
-					userNumber=Integer.parseInt(JOptionPane.showInputDialog(null, "Please, choose between 1 to 10: "));
-					myMorraPart2.setUserNumber(userNumber);
+					if(side.equalsIgnoreCase("even") || side.equalsIgnoreCase("odd")){
+						myMorraPart2.setSide(side);
+						userNumber=Integer.parseInt(JOptionPane.showInputDialog(null, "Please, choose between 1 to 10: "));
+						if(userNumber>=1 && userNumber<=10){
+							myMorraPart2.setUserNumber(userNumber);
 
-					//process
-					myMorraPart2.compute();
+							//process
+							myMorraPart2.compute();
 
-					//output
-					message=myMorraPart2.getMessage();
-					randNumber=myMorraPart2.getRandNumber();
-					sumPMarks=myMorraPart2.getSumPMarks();
-					sumCMarks=myMorraPart2.getSumCMarks();
-					JOptionPane.showMessageDialog(null, message);
-					JOptionPane.showMessageDialog(null," The computer chose "+randNumber); //have to show what the computer chose
-					JOptionPane.showMessageDialog(null, "The atual result is Player: "+sumPMarks+" and the Computer: "+sumCMarks+".");
+							//output
+							message=myMorraPart2.getMessage();
+							randNumber=myMorraPart2.getRandNumber();
+							sumPMarks=myMorraPart2.getSumPMarks();
+							sumCMarks=myMorraPart2.getSumCMarks();
+							JOptionPane.showMessageDialog(null, message);
+							JOptionPane.showMessageDialog(null," The computer chose "+randNumber); //have to show what the computer chose
+							JOptionPane.showMessageDialog(null, "The atual result is Player: "+sumPMarks+" and the Computer: "+sumCMarks+".");
+						}
+						else{
+							JOptionPane.showMessageDialog(null, "Ivalid value, start again.");
+					}
+					}
+					else{
+						JOptionPane.showMessageDialog(null, "Invalid value, start again.");
+					}
 			}
 		}
 		while(!side.equals("stop") && sumCMarks<12 && sumPMarks<12);
