@@ -86,6 +86,9 @@ public class MorraPart2{
 	public int getSumCMarks(){
 		return sumCMarks;
 	}
+	public int getRandNumber(){
+	return randNumber;
+	}
 
 
 
