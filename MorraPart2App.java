@@ -44,7 +44,7 @@ public class MorraPart2App{
 		while(!side.equals("stop") && sumCMarks<12 && sumPMarks<12);
 		JOptionPane.showMessageDialog(null, "The final result is Player: "+sumPMarks+" and Computer: "+sumCMarks+".");
 				replay=JOptionPane.showInputDialog("Do you want to play again?");
-		myMorraPart2.setReplay(replay);
+				myMorraPart2.setReplay(replay);
 			if(replay.equalsIgnoreCase("yes")){
 			main(args); // replays the game
 		} else{
