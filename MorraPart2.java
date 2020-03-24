@@ -18,6 +18,7 @@ public class MorraPart2{
 	private int cRMarks;//process
 	private int pRMarks;//process
 	private int sumRound;//process
+	private String replay; //input
 
 	//constructor
 	public MorraPart2(){
@@ -30,6 +31,7 @@ public class MorraPart2{
 		pRMarks=0;
 		sumCMarks=0;
 		sumPMarks=0;
+		replay="";
 	}
 
 	//setter
@@ -38,6 +40,9 @@ public class MorraPart2{
 	}
 	public void setUserNumber(int userNumber){
 		this.userNumber=userNumber;
+	}
+	public void setReplay(String replay){
+	this.replay=replay;
 	}
 
 	//process
