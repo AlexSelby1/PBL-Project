@@ -24,7 +24,7 @@ public class MorraPart2App{
 		do{
 			//inputs
 			side=JOptionPane.showInputDialog(null, "To play the game, please choose between Even or Odd. Type stop to end the game: ");
-				if(!side.equals("stop") && sumCMarks<12 && sumPMarks<12){
+				if(!side.equalsIgnoreCase("stop") && sumCMarks<12 && sumPMarks<12){
 					if(side.equalsIgnoreCase("even") || side.equalsIgnoreCase("odd")){
 						myMorraPart2.setSide(side);
 						userNumber=Integer.parseInt(JOptionPane.showInputDialog(null, "Please, choose between 1 to 10: "));
@@ -45,14 +45,14 @@ public class MorraPart2App{
 						}
 						else{
 							JOptionPane.showMessageDialog(null, "Ivalid value, start again.");
-					}
+						}
 					}
 					else{
 						JOptionPane.showMessageDialog(null, "Invalid value, start again.");
 					}
 			}
 		}
-		while(!side.equals("stop") && sumCMarks<12 && sumPMarks<12);
+		while(!side.equalsIgnoreCase("stop") && sumCMarks<12 && sumPMarks<12);
 		JOptionPane.showMessageDialog(null, "The final result is Player: "+sumPMarks+" and Computer: "+sumCMarks+".");
 				replay=JOptionPane.showInputDialog("Do you want to play again?");
 				myMorraPart2.setReplay(replay);
