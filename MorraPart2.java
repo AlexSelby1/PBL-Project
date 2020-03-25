@@ -52,44 +52,64 @@ public class MorraPart2{
 			message="You win!";
 			pRMarks=5;
 			cRMarks=0;
-		if(side.equalsIgnoreCase("even") && sumRound%2==0 && Math.abs(randNumber-sumRound)<Math.abs(userNumber-sumRound)){
+			}
+		else if(side.equalsIgnoreCase("even") && sumRound%2==0 && Math.abs(randNumber-sumRound)<Math.abs(userNumber-sumRound)){
 			message="You win!";
 			pRMarks=3;
 			cRMarks=2;
-				}
 			}
 		else if(side.equalsIgnoreCase("odd") && sumRound%2!=0 && Math.abs(userNumber-sumRound)<Math.abs(randNumber-sumRound)){
 			message="You win!";
 			pRMarks=5;
 			cRMarks=0;
-		if(side.equalsIgnoreCase("odd") && sumRound%2!=0 && Math.abs(randNumber-sumRound)<Math.abs(userNumber-sumRound)){
+			}
+		else if(side.equalsIgnoreCase("odd") && sumRound%2!=0 && Math.abs(randNumber-sumRound)<Math.abs(userNumber-sumRound)){
 			message="You win!";
 			pRMarks=3;
 			cRMarks=2;
 			}
-		}
-	else if(side.equalsIgnoreCase("even") && sumRound%2!=0 && Math.abs(randNumber-sumRound)<Math.abs(userNumber-sumRound)){
+		else if(side.equalsIgnoreCase("odd") && sumRound%2!=0 && Math.abs(userNumber-sumRound)==Math.abs(randNumber-sumRound)){
+			message="You Win!";
+			pRMarks=3;
+			cRMarks=0;
+			}
+		else if(side.equalsIgnoreCase("even") && sumRound%2==0 && Math.abs(userNumber-sumRound)==Math.abs(randNumber-sumRound)){
+			message="You Win!";
+			pRMarks=3;
+			cRMarks=0;
+			}
+		else if(side.equalsIgnoreCase("even") && sumRound%2!=0 && Math.abs(randNumber-sumRound)<Math.abs(userNumber-sumRound)){
 			message="Computer Win!";
 			cRMarks=5;
 			pRMarks=0;
-		if(side.equalsIgnoreCase("even") && sumRound%2!=0 && Math.abs(userNumber-sumRound)<Math.abs(randNumber-sumRound)){
+			}
+		else if(side.equalsIgnoreCase("even") && sumRound%2!=0 && Math.abs(userNumber-sumRound)<Math.abs(randNumber-sumRound)){
 			message="Computer Win!";
 			cRMarks=3;
 			pRMarks=2;
 			}
-		}
-	else if(side.equalsIgnoreCase("odd") && sumRound%2==0 && Math.abs(randNumber-sumRound)<Math.abs(userNumber-sumRound)){
+		else if(side.equalsIgnoreCase("odd") && sumRound%2==0 && Math.abs(randNumber-sumRound)<Math.abs(userNumber-sumRound)){
 			message="Computer Win!";
 			cRMarks=5;
 			pRMarks=0;
-	if(side.equalsIgnoreCase("odd") && sumRound%2==0 && Math.abs(userNumber-sumRound)<Math.abs(randNumber-sumRound)){
+			}
+		else if(side.equalsIgnoreCase("odd") && sumRound%2==0 && Math.abs(userNumber-sumRound)<Math.abs(randNumber-sumRound)){
 			message="Computer Win!";
 			cRMarks=3;
 			pRMarks=2;
 			}
-		}
-		 else{
-			message="Invalid value, try again.";
+		else if(side.equalsIgnoreCase("odd") && sumRound%2!=0 && Math.abs(userNumber-sumRound)==Math.abs(randNumber-sumRound)){
+			message="Computer Win!";
+			cRMarks=3;
+			pRMarks=0;
+			}
+		else if(side.equalsIgnoreCase("even") && sumRound%2==0 && Math.abs(userNumber-sumRound)==Math.abs(randNumber-sumRound)){
+			message="Computer Win!";
+			cRMarks=3;
+			pRMarks=0;
+			}
+		    else{
+				message="Invalid value, try again.";
 			}
 		sumPMarks=sumPMarks+pRMarks;
 		sumCMarks=sumCMarks+cRMarks;
