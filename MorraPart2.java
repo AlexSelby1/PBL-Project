@@ -48,12 +48,12 @@ public class MorraPart2{
 	public void compute(){
 		randNumber=rand.nextInt(10-1)+1;
 		sumRound=userNumber+randNumber;
-		if(side.equalsIgnoreCase("even") && sumRound%2==0 && Math.abs(userNumber-sumRound)<Math.abs(randNumber-sumRound)){
+		if(side.equalsIgnoreCase("even") && sumRound%2==0 && Math.abs(userNumber-sumRound)<Math.abs(randNumber-sumRound)){//user picked the closest number - user gets extra points
 			message="You win!";
 			pRMarks=5;
 			cRMarks=0;
 			}
-		else if(side.equalsIgnoreCase("even") && sumRound%2==0 && Math.abs(randNumber-sumRound)<Math.abs(userNumber-sumRound)){
+		else if(side.equalsIgnoreCase("even") && sumRound%2==0 && Math.abs(randNumber-sumRound)<Math.abs(userNumber-sumRound)){//computer picked the closest number - computer gets extra points
 			message="You win!";
 			pRMarks=3;
 			cRMarks=2;
@@ -68,7 +68,7 @@ public class MorraPart2{
 			pRMarks=3;
 			cRMarks=2;
 			}
-		else if(side.equalsIgnoreCase("odd") && sumRound%2!=0 && Math.abs(userNumber-sumRound)==Math.abs(randNumber-sumRound)){
+		else if(side.equalsIgnoreCase("odd") && sumRound%2!=0 && Math.abs(userNumber-sumRound)==Math.abs(randNumber-sumRound)){//both picked the same number - no extra points
 			message="You Win!";
 			pRMarks=3;
 			cRMarks=0;
