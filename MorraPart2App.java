@@ -16,6 +16,7 @@ public class MorraPart2App{
 		int sumCMarks=0;
 		int randNumber=0;
 		String replay; //added to play again
+		String winnerMessage;
 
 		//objects
 		MorraPart2 myMorraPart2;
@@ -23,7 +24,7 @@ public class MorraPart2App{
 
 		do{
 			//inputs
-			side=JOptionPane.showInputDialog(null, "To play the game, please choose between Even or Odd. Type stop to end the game: ");
+			side=JOptionPane.showInputDialog(null, "To play the game, please choose between Even or Odd.\n\nType stop to end the game: ");
 				if(!side.equalsIgnoreCase("stop") && sumCMarks<12 && sumPMarks<12){
 					if(side.equalsIgnoreCase("even") || side.equalsIgnoreCase("odd")){
 						myMorraPart2.setSide(side);
@@ -40,8 +41,7 @@ public class MorraPart2App{
 							sumPMarks=myMorraPart2.getSumPMarks();
 							sumCMarks=myMorraPart2.getSumCMarks();
 							JOptionPane.showMessageDialog(null, message);
-							JOptionPane.showMessageDialog(null," The computer chose "+randNumber); //have to show what the computer chose
-							JOptionPane.showMessageDialog(null, "The atual result is Player: "+sumPMarks+" and the Computer: "+sumCMarks+".");
+							JOptionPane.showMessageDialog(null,"The computer chose: "+randNumber+"\n\nThis round result:"+"\nPlayer: "+sumPMarks+"\nComputer: "+sumCMarks); //have to show what the computer chose
 						}
 						else{
 							JOptionPane.showMessageDialog(null, "Ivalid value, start again.");
@@ -53,13 +53,15 @@ public class MorraPart2App{
 			}
 		}
 		while(!side.equalsIgnoreCase("stop") && sumCMarks<12 && sumPMarks<12);
-		JOptionPane.showMessageDialog(null, "The final result is Player: "+sumPMarks+" and Computer: "+sumCMarks+".");
-				replay=JOptionPane.showInputDialog("Do you want to play again?");
-				myMorraPart2.setReplay(replay);
-			if(replay.equalsIgnoreCase("yes")){
-			main(args); // replays the game
-		} else{
-			JOptionPane.showMessageDialog(null,"Thank you");
+		winnerMessage=myMorraPart2.getWinnerMessage();
+		JOptionPane.showMessageDialog(null, winnerMessage);
+		replay=JOptionPane.showInputDialog("Do you want to play again?");
+		myMorraPart2.setReplay(replay);
+		if(replay.equalsIgnoreCase("yes")){
+		main(args); // replays the game
+		}
+		else{
+			JOptionPane.showMessageDialog(null,"Thank you!");
 		}
 
 	}
