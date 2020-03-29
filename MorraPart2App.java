@@ -24,7 +24,7 @@ public class MorraPart2App{
 
 		do{
 			//inputs
-			side=JOptionPane.showInputDialog(null, "To play the game, please choose between Even or Odd.\n\nType stop to end the game: ");
+			side=JOptionPane.showInputDialog(null, "To play the game, please choose between Even or Odd.\n\nType stop to end the game: \n\n");
 				if(!side.equalsIgnoreCase("stop") && sumCMarks<12 && sumPMarks<12){
 					if(side.equalsIgnoreCase("even") || side.equalsIgnoreCase("odd")){
 						myMorraPart2.setSide(side);
@@ -54,6 +54,8 @@ public class MorraPart2App{
 		}
 		while(!side.equalsIgnoreCase("stop") && sumCMarks<12 && sumPMarks<12);
 		winnerMessage=myMorraPart2.getWinnerMessage();
+		winnerMessage += "\n";
+		winnerMessage += myMorraPart2.getHist();
 		JOptionPane.showMessageDialog(null, winnerMessage);
 		replay=JOptionPane.showInputDialog("Do you want to play again?");
 		myMorraPart2.setReplay(replay);
@@ -63,6 +65,5 @@ public class MorraPart2App{
 		else{
 			JOptionPane.showMessageDialog(null,"Thank you!");
 		}
-
 	}
 }

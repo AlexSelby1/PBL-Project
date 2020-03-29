@@ -5,6 +5,7 @@ Group F
 */
 
 import java.util.*;
+import javax.swing.*;
 public class MorraPart2{
 
 	//members data
@@ -20,6 +21,8 @@ public class MorraPart2{
 	private int sumRound;//process
 	private String replay; //input
 	private String winnerMessage; //output
+	public int[][] arrHist = new int[10][2]; // history array
+	int indexC;
 
 	//constructor
 	public MorraPart2(){
@@ -34,6 +37,7 @@ public class MorraPart2{
 		sumPMarks=0;
 		replay="";
 		winnerMessage="";
+	    indexC = 0;
 	}
 
 	//setter
@@ -115,12 +119,42 @@ public class MorraPart2{
 			}
 		sumPMarks=sumPMarks+pRMarks;
 		sumCMarks=sumCMarks+cRMarks;
+
+		//calling history array
+		getHistory(userNumber, randNumber, indexC);
+		indexC++;
+
 		if(sumPMarks>=12){
-			winnerMessage="Player Wins the Round with "+sumPMarks+"points"+"\nComputer lose the Round with "+sumCMarks+" points";
+			winnerMessage="Player wins the Game with "+sumPMarks+" points"+"\nComputer loses the Game with "+sumCMarks+" points\n";
 		}
 		else if(sumCMarks>=12){
-			winnerMessage="Computer Wins the Round with "+sumCMarks+" points"+"\n\nPlayer lose the Round with "+sumPMarks+" points";
+			winnerMessage="Computer wins the Game with "+sumCMarks+" points"+"\n\nPlayer loses the Game with "+sumPMarks+" points\n";
 		}
+	}
+
+	//history array
+	public void getHistory(int player, int comp, int indexC) {
+		int i = 0;
+		arrHist[indexC][i]=player;
+		i++;
+		arrHist[indexC][i]=comp;
+	}
+
+	public String displayHist(int arrHist[][], int round) {
+		String output="";
+		for (int x=0; x<round; x++) {
+			for(int j= 0; j<2; j++) {
+				if (j==0) {
+		    		output += "Round "+ (x+1) + ": Player "+ Integer.toString(arrHist[x][j]) +" -";
+				} else {
+					output += " Comp ";
+					output += Integer.toString(arrHist[x][j]);
+				}
+		    }
+		    output += "\n";
+		}
+	    output += "\n";
+		return output;
 	}
 
 	//getter
@@ -138,5 +172,8 @@ public class MorraPart2{
 	}
 	public String getWinnerMessage(){
 		return winnerMessage;
+	}
+	public String getHist(){
+		return displayHist(arrHist, indexC);
 	}
 }
