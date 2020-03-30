@@ -23,6 +23,8 @@ public class MorraPart2{
 	private String winnerMessage; //output
 	public int[][] arrHist = new int[10][2]; // history array
 	int indexC;
+	private final int CREXTRA;//process
+	private final int PREXTRA;//process
 
 	//constructor
 	public MorraPart2(){
@@ -37,7 +39,9 @@ public class MorraPart2{
 		sumPMarks=0;
 		replay="";
 		winnerMessage="";
-	    indexC = 0;
+	   	indexC = 0;
+	   	CREXTRA=2;//Constant used to get the extra point variable for final array
+	    	PREXTRA=2;//Constant used for players extra points
 	}
 
 	//setter
@@ -55,24 +59,24 @@ public class MorraPart2{
 		randNumber=rand.nextInt(10-1)+1;
 		sumRound=userNumber+randNumber;
 		if(side.equalsIgnoreCase("even") && sumRound%2==0 && Math.abs(userNumber-sumRound)<Math.abs(randNumber-sumRound)){//user picked the closest number - user gets extra points
-			message="You win 3 points!";
-			pRMarks=5;
+			message="You win 5 points!";
+			pRMarks=3+PREXTRA;
 			cRMarks=0;
 			}
 		else if(side.equalsIgnoreCase("even") && sumRound%2==0 && Math.abs(randNumber-sumRound)<Math.abs(userNumber-sumRound)){//computer picked the closest number - computer gets extra points
 			message="You win 3 points!";
 			pRMarks=3;
-			cRMarks=2;
+			cRMarks=CREXTRA;
 			}
 		else if(side.equalsIgnoreCase("odd") && sumRound%2!=0 && Math.abs(userNumber-sumRound)<Math.abs(randNumber-sumRound)){
-			message="You win 3 points!";
-			pRMarks=5;
+			message="You win 5 points!";
+			pRMarks=3+PREXTRA;
 			cRMarks=0;
 			}
 		else if(side.equalsIgnoreCase("odd") && sumRound%2!=0 && Math.abs(randNumber-sumRound)<Math.abs(userNumber-sumRound)){
 			message="You win 3 points!";
 			pRMarks=3;
-			cRMarks=2;
+			cRMarks=CREXTRA;
 			}
 		else if(side.equalsIgnoreCase("odd") && sumRound%2!=0 && Math.abs(userNumber-sumRound)==Math.abs(randNumber-sumRound)){//both picked the same number - no extra points
 			message="You Win 3 points!";
@@ -85,24 +89,24 @@ public class MorraPart2{
 			cRMarks=0;
 			}
 		else if(side.equalsIgnoreCase("even") && sumRound%2!=0 && Math.abs(randNumber-sumRound)<Math.abs(userNumber-sumRound)){
-			message="Computer Win 3 points!";
-			cRMarks=5;
+			message="Computer Win 5 points!";
+			cRMarks=3+CREXTRA;
 			pRMarks=0;
 			}
 		else if(side.equalsIgnoreCase("even") && sumRound%2!=0 && Math.abs(userNumber-sumRound)<Math.abs(randNumber-sumRound)){
 			message="Computer Win 3 points!";
 			cRMarks=3;
-			pRMarks=2;
+			pRMarks=PREXTRA;
 			}
 		else if(side.equalsIgnoreCase("odd") && sumRound%2==0 && Math.abs(randNumber-sumRound)<Math.abs(userNumber-sumRound)){
-			message="Computer Win 3 points!";
-			cRMarks=5;
+			message="Computer Win 5 points!";
+			cRMarks=3+CREXTRA;
 			pRMarks=0;
 			}
 		else if(side.equalsIgnoreCase("odd") && sumRound%2==0 && Math.abs(userNumber-sumRound)<Math.abs(randNumber-sumRound)){
 			message="Computer Win 3 points!";
 			cRMarks=3;
-			pRMarks=2;
+			pRMarks=PREXTRA;
 			}
 		else if(side.equalsIgnoreCase("odd") && sumRound%2!=0 && Math.abs(userNumber-sumRound)==Math.abs(randNumber-sumRound)){
 			message="Computer Win 3 points!";
