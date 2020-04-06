@@ -33,15 +33,15 @@ public class MorraPart2Play{
 			}
 
 			public int play() {
-
+				//the game will run until the user decides to stop
 				do{
-					//inputs
+					//ask the user if they want to choose even, odd or stop
 					side=JOptionPane.showInputDialog(null, "To play the game, please choose between Even or Odd.\n\nType stop to end the game: \n\n");
-						if(!side.equalsIgnoreCase("stop") && sumCMarks<12 && sumPMarks<12){
+						if(!side.equalsIgnoreCase("stop") && sumCMarks<12 && sumPMarks<12){//check the user decision and play the game
 							if(side.equalsIgnoreCase("even") || side.equalsIgnoreCase("odd")){
-								myMorraPart2.setSide(side);
-								userNumber=Integer.parseInt(JOptionPane.showInputDialog(null, "Please, choose between 1 to 10: "));
-								if(userNumber>=1 && userNumber<=10){
+								myMorraPart2.setSide(side);//store the information in the varibale side on the inst class
+								userNumber=Integer.parseInt(JOptionPane.showInputDialog(null, "Please, choose between 1 to 10: "));//ask the user for a number
+								if(userNumber>=1 && userNumber<=10){//if the number meets the cretiria the games play
 									myMorraPart2.setUserNumber(userNumber);
 
 									//process
@@ -55,15 +55,15 @@ public class MorraPart2Play{
 									JOptionPane.showMessageDialog(null, message);
 									JOptionPane.showMessageDialog(null,"The computer chose: "+randNumber+"\n\nThis round result:"+"\nPlayer: "+sumPMarks+"\nComputer: "+sumCMarks); //have to show what the computer chose
 								}
-								else{
+								else{//if the user doesn't enter a valid number the game repeates
 									JOptionPane.showMessageDialog(null, "Ivalid value, start again.");
 								}
 							}
-							else{
+							else{// if the user doesn't enter a valid number the game repeates
 								JOptionPane.showMessageDialog(null, "Invalid value, start again.");
 							}
 					}
-			}while(!side.equalsIgnoreCase("stop") && sumCMarks<12 && sumPMarks<12);
+			}while(!side.equalsIgnoreCase("stop") && sumCMarks<12 && sumPMarks<12);//condition to stop the game at any time
 				winnerMessage=myMorraPart2.getWinnerMessage();
 				winnerMessage += "\n";
 				winnerMessage += myMorraPart2.getHist();
