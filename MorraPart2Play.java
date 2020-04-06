@@ -33,20 +33,21 @@ public class MorraPart2Play{
 			}
 
 			public int play() {
-
+				//the game will run until the user decides to stop
 				do{
-					//inputs
+					//ask the user if they want to choose even, odd or stop
 					side=JOptionPane.showInputDialog(null, "To play the game, please choose between Even or Odd.\n\nType stop to end the game: \n\n");
-						if(!side.equalsIgnoreCase("stop") && sumCMarks<12 && sumPMarks<12){
+						if(!side.equalsIgnoreCase("stop") && sumCMarks<12 && sumPMarks<12){//check the user decision and play the game
 							if(side.equalsIgnoreCase("even") || side.equalsIgnoreCase("odd")){
 								myMorraPart2.setSide(side);
 								runGame();
 							}
-							else{
+							else{// if the user doesn't enter a valid number the game repeates
 								JOptionPane.showMessageDialog(null, "Invalid value, start again.");
 							}
 					}
-				}while(!side.equalsIgnoreCase("stop") && sumCMarks<12 && sumPMarks<12);
+			}
+			while(!side.equalsIgnoreCase("stop") && sumCMarks<12 && sumPMarks<12);//condition to stop the game at any time
 				winnerMessage=myMorraPart2.getWinnerMessage();
 				winnerMessage += "\n";
 				winnerMessage += myMorraPart2.getHist();
@@ -99,5 +100,5 @@ public class MorraPart2Play{
 					runGame();
 				}
 			}
-
 }
+
