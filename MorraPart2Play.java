@@ -40,30 +40,13 @@ public class MorraPart2Play{
 						if(!side.equalsIgnoreCase("stop") && sumCMarks<12 && sumPMarks<12){
 							if(side.equalsIgnoreCase("even") || side.equalsIgnoreCase("odd")){
 								myMorraPart2.setSide(side);
-								userNumber=Integer.parseInt(JOptionPane.showInputDialog(null, "Please, choose between 1 to 10: "));
-								if(userNumber>=1 && userNumber<=10){
-									myMorraPart2.setUserNumber(userNumber);
-
-									//process
-									myMorraPart2.compute();
-
-									//output
-									message=myMorraPart2.getMessage();
-									randNumber=myMorraPart2.getRandNumber();
-									sumPMarks=myMorraPart2.getSumPMarks();
-									sumCMarks=myMorraPart2.getSumCMarks();
-									JOptionPane.showMessageDialog(null, message);
-									JOptionPane.showMessageDialog(null,"The computer chose: "+randNumber+"\n\nThis round result:"+"\nPlayer: "+sumPMarks+"\nComputer: "+sumCMarks); //have to show what the computer chose
-								}
-								else{
-									JOptionPane.showMessageDialog(null, "Ivalid value, start again.");
-								}
+								runGame();
 							}
 							else{
 								JOptionPane.showMessageDialog(null, "Invalid value, start again.");
 							}
 					}
-			}while(!side.equalsIgnoreCase("stop") && sumCMarks<12 && sumPMarks<12);
+				}while(!side.equalsIgnoreCase("stop") && sumCMarks<12 && sumPMarks<12);
 				winnerMessage=myMorraPart2.getWinnerMessage();
 				winnerMessage += "\n";
 				winnerMessage += myMorraPart2.getHist();
@@ -87,6 +70,34 @@ public class MorraPart2Play{
 					return 1;
 				}
 
+			}
+
+			public void runGame(){
+				try{
+				userNumber=Integer.parseInt(JOptionPane.showInputDialog(null, "Please, choose between 1 to 10: "));
+					if(userNumber>=1 && userNumber<=10){
+						myMorraPart2.setUserNumber(userNumber);
+
+						//process
+						myMorraPart2.compute();
+
+						//output
+						message=myMorraPart2.getMessage();
+						randNumber=myMorraPart2.getRandNumber();
+						sumPMarks=myMorraPart2.getSumPMarks();
+						sumCMarks=myMorraPart2.getSumCMarks();
+						JOptionPane.showMessageDialog(null, message);
+						JOptionPane.showMessageDialog(null,"The computer chose: "+randNumber+"\n\nThis round result:"+"\nPlayer: "+sumPMarks+"\nComputer: "+sumCMarks); //have to show what the computer chose
+						}
+					else{
+						JOptionPane.showMessageDialog(null, "Ivalid value, start again.");
+						runGame();
+					}
+				}
+				catch(NumberFormatException e){
+					JOptionPane.showMessageDialog(null, "Invalid value, start again.");
+					runGame();
+				}
 			}
 
 }
