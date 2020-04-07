@@ -47,12 +47,13 @@ public class MorraPart2{
 	List<Integer> arrCExtra = new ArrayList<>();//output - amount of Extra Points for Computer
 
 
-	//constructor
-	public MorraPart2(){//header of constructor - initialises the variables
+	//constructor - initialises the variables
+	public MorraPart2(){
 		side="";
 		userNumber=0;
 		replay="";
 		rand = new Random();
+		randNumber=0;
 		sumRound=0;
 		message="";
 		cRMarks=0;
@@ -76,8 +77,19 @@ public class MorraPart2{
 		c2=2;
 		c3=3;
 	}
+	//setter - variables that will needed to be input by the user.
+	public void setSide(String side){
+		this.side=side;
+	}
+	public void setUserNumber(int userNumber){
+		this.userNumber=userNumber;
+	}
+	public void setReplay(String replay){
+	this.replay=replay;
+	}
 
-	public void reset() { //resets the scores to 0 when the game is replayed
+	//resets the scores to 0 when the game is replayed
+	public void reset() { 
 		sumPMarks=0;
 		sumCMarks=0;
 		indexC=0;
@@ -91,7 +103,8 @@ public class MorraPart2{
 		totalCExtra=0;
 	}
 
-	public void computePoints(int result) {//holds result for history array - do we need to create result variable?
+	//holds result for history array - do we need to create result variable?
+	public void computePoints(int result) {
 
 		if (result == 1) {
 			//bigger the number, the closer to the sum i.e win extra points
@@ -135,17 +148,6 @@ public class MorraPart2{
 				pRMarks=0;
 			}
 		}
-	}
-
-	//setter - variables that will needed to be input by the user.
-	public void setSide(String side){
-		this.side=side;
-	}
-	public void setUserNumber(int userNumber){
-		this.userNumber=userNumber;
-	}
-	public void setReplay(String replay){
-	this.replay=replay;
 	}
 	//process
 	public void compute(){
