@@ -17,7 +17,7 @@ public class MorraPart2App{
 
 		//variable
 		String replay= myMorraPart2Play.replay; 
-		String winnerMessage= myMorraPart2Play.message;
+		String winnerMessage= myMorraPart2Play.winnerMessage;
 
 
 		//Call Function play on Class MorraPart2Play to play the game
