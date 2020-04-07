@@ -39,8 +39,6 @@ public class MorraPart2{
 	private int[][] arrHist = new int[10][2]; //history array
 	List<Integer> arrRndWList = new ArrayList<>();//output Number of rounds Won
 	List<Integer> arrRndLList = new ArrayList<>();//output Number of rounds Lost
-	List<Integer> arrRndWList = new ArrayList<>();//output - Number of rounds Won
-	List<Integer> arrRndLList = new ArrayList<>();//output - Number of rounds Lost
 	List<Integer> arrOddPList = new ArrayList<>();//output - Number of Odd numbers by Player
 	List<Integer> arrEvenPList = new ArrayList<>();//output - Number of Even numbers by Player
 	List<Integer> arrOddCList = new ArrayList<>();//output - Number of Odd numbers by Computer
