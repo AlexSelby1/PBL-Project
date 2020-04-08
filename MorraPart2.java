@@ -21,7 +21,7 @@ public class MorraPart2{
 	private int sumPMarks;//process&output - sum of all Players points
 	private final int EXTPOINTS;//CONSTANT int for 2 extra points
 	private String message;//output - prints message out to user
-	private int indexC;//output
+	private int indexC;//output - stores number of rows in array
 	private int won;//output - total Win Player
 	private int lost;//output - total Lost Player
 	private int evenP;//output - how many times Player chose even
