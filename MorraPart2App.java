@@ -10,17 +10,15 @@ public class MorraPart2App{
 	public static void main(String args[]){
 
 		int con = 0;
-
-		MorraPart2Play myMorraPart2Play;
-		myMorraPart2Play=new MorraPart2Play();
+		
+		//objects
+		MorraPart2 myMorraPart2=new MorraPart2();
+		MorraPart2Play myMorraPart2Play=new MorraPart2Play();
 
 		//variable
-		String replay= myMorraPart2Play.replay; //added to play again
+		String replay= myMorraPart2Play.replay; 
 		String winnerMessage= myMorraPart2Play.winnerMessage;
 
-		//objects
-		MorraPart2 myMorraPart2;
-		myMorraPart2=new MorraPart2();
 
 		//Call Function play on Class MorraPart2Play to play the game
 		while(con==0) {
