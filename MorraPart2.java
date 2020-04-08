@@ -88,6 +88,51 @@ public class MorraPart2{
 	this.replay=replay;
 	}
 
+	//process
+	public void compute(){
+		randNumber=rand.nextInt(10-1)+1;//creating random number generator
+		sumRound=userNumber+randNumber;
+
+
+		//if statement to check if Player Chose "EVEN"
+		if(side.equalsIgnoreCase("even") && sumRound%2==0){
+
+			//Player Won! Send 1 to computePoints
+			computePoints(1);
+
+		} else if(side.equalsIgnoreCase("even") && sumRound%2!=0) {
+
+			//Player Lost! Send 0 to computePoints
+			computePoints(0);
+		}
+
+		//if statement to check if Player Chose "ODD"
+		if(side.equalsIgnoreCase("odd") && sumRound%2!=0){
+
+			//Player Won! Send 1 to computePoints
+			computePoints(1);
+
+		} else if(side.equalsIgnoreCase("odd") && sumRound%2==0) {
+
+			//Player Lost! Send 0 to computePoints
+			computePoints(0);
+		}
+		//adding sum of points for Player and Computer
+		sumPMarks=sumPMarks+pRMarks;
+		sumCMarks=sumCMarks+cRMarks;
+
+		//calling history array
+		getHistory(userNumber, randNumber, indexC);
+		indexC++;
+		
+		// if statement to declare the winner and their scores
+		if(sumPMarks>=12){
+			message="Player wins the Game with "+sumPMarks+" points"+"\nComputer loses the Game with "+sumCMarks+" points\n";
+		}
+		else if(sumCMarks>=12){
+			message="Computer wins the Game with "+sumCMarks+" points"+"\n\nPlayer loses the Game with "+sumPMarks+" points\n";
+		}
+	}
 	//resets the scores to 0 when the game is replayed
 	public void reset() { 
 		sumPMarks=0;
@@ -147,51 +192,6 @@ public class MorraPart2{
 				cRMarks=3;
 				pRMarks=0;
 			}
-		}
-	}
-	//process
-	public void compute(){
-		randNumber=rand.nextInt(10-1)+1;//creating random number generator
-		sumRound=userNumber+randNumber;
-
-
-		//if statement to check if Player Chose "EVEN"
-		if(side.equalsIgnoreCase("even") && sumRound%2==0){
-
-			//Player Won! Send 1 to computePoints
-			computePoints(1);
-
-		} else if(side.equalsIgnoreCase("even") && sumRound%2!=0) {
-
-			//Player Lost! Send 0 to computePoints
-			computePoints(0);
-		}
-
-		//if statement to check if Player Chose "ODD"
-		if(side.equalsIgnoreCase("odd") && sumRound%2!=0){
-
-			//Player Won! Send 1 to computePoints
-			computePoints(1);
-
-		} else if(side.equalsIgnoreCase("odd") && sumRound%2==0) {
-
-			//Player Lost! Send 0 to computePoints
-			computePoints(0);
-		}
-		//adding sum of points for Player and Computer
-		sumPMarks=sumPMarks+pRMarks;
-		sumCMarks=sumCMarks+cRMarks;
-
-		//calling history array
-		getHistory(userNumber, randNumber, indexC);
-		indexC++;
-		
-		// if statement to declare the winner and their scores
-		if(sumPMarks>=12){
-			message="Player wins the Game with "+sumPMarks+" points"+"\nComputer loses the Game with "+sumCMarks+" points\n";
-		}
-		else if(sumCMarks>=12){
-			message="Computer wins the Game with "+sumCMarks+" points"+"\n\nPlayer loses the Game with "+sumPMarks+" points\n";
 		}
 	}
 
