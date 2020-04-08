@@ -20,31 +20,32 @@ public class MorraPart2{
 	private int sumCMarks;//process&output - sum of all Computers points
 	private int sumPMarks;//process&output - sum of all Players points
 	private final int EXTPOINTS;//CONSTANT int for 2 extra points
-	private String message;//output - prints message out to user
-	private int indexC;//output - stores number of rows in array
-	private int won;//output - total Win Player
-	private int lost;//output - total Lost Player
-	private int evenP;//output - how many times Player chose even
-	private int oddP;//output - how many times Player chose odd
-	private int evenC;//output - how many times Computer chose even
-	private int oddC;//output - how many times Computer chose odd
-	private int totalPExtra;//output - total points extra per game Player
-	private int totalCExtra;//output - total points extra per game Comp
-	private int gameCounter;//output Number of games played
+	private int indexC;//process - stores number of rows in array
+	private int won;//process - total Win Player
+	private int lost;//process - total Lost Player
+	private int evenP;//process - how many times Player chose even
+	private int oddP;//process - how many times Player chose odd
+	private int evenC;//process - how many times Computer chose even
+	private int oddC;//process - how many times Computer chose odd
+	private int totalPExtra;//process - total points extra per game Player
+	private int totalCExtra;//process - total points extra per game Comp
+	private int gameCounter;//process Number of games played
 	private int con; // CONTROL VARIABLE to keep track of END of GAME (STOP GAME)
 	private int c0; //columns of the Arrays
 	private int c1;
 	private int c2;
 	private int c3;
-	private int[][] arrHist = new int[10][2]; //history array
-	List<Integer> arrRndWList = new ArrayList<>();//output Number of rounds Won
-	List<Integer> arrRndLList = new ArrayList<>();//output Number of rounds Lost
-	List<Integer> arrOddPList = new ArrayList<>();//output - Number of Odd numbers by Player
-	List<Integer> arrEvenPList = new ArrayList<>();//output - Number of Even numbers by Player
-	List<Integer> arrOddCList = new ArrayList<>();//output - Number of Odd numbers by Computer
-	List<Integer> arrEvenCList = new ArrayList<>();//output - Number of Even numbers by Computer
-	List<Integer> arrPExtra = new ArrayList<>();//output - amount of Extra Points for Player
-	List<Integer> arrCExtra = new ArrayList<>();//output - amount of Extra Points for Computer
+	private int[][] arrHist = new int[10][2]; //process history of games array
+	List<Integer> arrRndWList = new ArrayList<>();//process Number of rounds Won
+	List<Integer> arrRndLList = new ArrayList<>();//process Number of rounds Lost
+	List<Integer> arrOddPList = new ArrayList<>();//process - Number of Odd numbers by Player
+	List<Integer> arrEvenPList = new ArrayList<>();//process - Number of Even numbers by Player
+	List<Integer> arrOddCList = new ArrayList<>();//process - Number of Odd numbers by Computer
+	List<Integer> arrEvenCList = new ArrayList<>();//process - Number of Even numbers by Computer
+	List<Integer> arrPExtra = new ArrayList<>();//process - amount of Extra Points for Player
+	List<Integer> arrCExtra = new ArrayList<>();//process - amount of Extra Points for Computer
+	private String message;//output - prints message out to user
+	private String winnerMessage; //output
 
 
 	//constructor - initialises the variables
@@ -55,7 +56,6 @@ public class MorraPart2{
 		rand = new Random();
 		randNumber=0;
 		sumRound=0;
-		message="";
 		cRMarks=0;
 		pRMarks=0;
 		sumCMarks=0;
@@ -76,6 +76,8 @@ public class MorraPart2{
 		c1=1;
 		c2=2;
 		c3=3;
+		message="";
+		winnerMessage="";
 	}
 	//setter - variables that will needed to be input by the user.
 	public void setSide(String side){
@@ -127,10 +129,10 @@ public class MorraPart2{
 		
 		// if statement to declare the winner and their scores
 		if(sumPMarks>=12){
-			message="Player wins the Game with "+sumPMarks+" points"+"\nComputer loses the Game with "+sumCMarks+" points\n";
+			winnerMessage="Player wins the Game with "+sumPMarks+" points"+"\nComputer loses the Game with "+sumCMarks+" points\n";
 		}
 		else if(sumCMarks>=12){
-			message="Computer wins the Game with "+sumCMarks+" points"+"\n\nPlayer loses the Game with "+sumPMarks+" points\n";
+			winnerMessage="Computer wins the Game with "+sumCMarks+" points"+"\n\nPlayer loses the Game with "+sumPMarks+" points\n";
 		}
 	}
 	//resets the scores to 0 when the game is replayed
@@ -251,15 +253,15 @@ public class MorraPart2{
 
 		/*Array containing the result of Rounds won/lost Per Game.
 		Column: 0 Player won, 1 Player lost*/
-		int[][] arrHistResult = new int[gameCounter][2];
+		int[][] arrHistResult = new int[gameCounter][2];//output
 
 		/*Array containing the number of odds and even numbers chosen by Player/Comp Per Game.
 		Column: 0 PlayEven, 1 PlayOdd, 2 CompEven, 3 CompOdd*/
-		int[][] arrHistOE = new int[gameCounter][4];
+		int[][] arrHistOE = new int[gameCounter][4];//output
 
 		/*Array containing the number of Extra Points received by Player/Comp Per Game.
 		Column: 0 Player, 1 Comp*/
-		int[][] arrHistEXTPOINTS = new int[gameCounter][2];
+		int[][] arrHistEXTPOINTS = new int[gameCounter][2];//output
 
 		//Index for List Arrays
 		int ind = 0;
@@ -308,6 +310,9 @@ public class MorraPart2{
 	//getter
 	public String getMessage(){
 		return message;
+	}
+	public String getWinnerMessage(){
+		return winnerMessage;
 	}
 	public int getSumPMarks(){
 		return sumPMarks;
