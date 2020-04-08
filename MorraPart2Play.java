@@ -46,8 +46,8 @@ public class MorraPart2Play{
 								JOptionPane.showMessageDialog(null, "Invalid value, start again.");
 							}
 					}
-			}
-			while(!side.equalsIgnoreCase("stop") && sumCMarks<12 && sumPMarks<12);//condition to stop the game at any time
+				}
+				while(!side.equalsIgnoreCase("stop") && sumCMarks<12 && sumPMarks<12);//condition to stop the game at any time
 				winnerMessage=myMorraPart2.getWinnerMessage();
 				winnerMessage += "\n";
 				winnerMessage += myMorraPart2.getHist();
