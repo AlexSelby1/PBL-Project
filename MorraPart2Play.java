@@ -16,20 +16,9 @@ public class MorraPart2Play{
 		String replay; //input to play again
 		String message;//output
 		String winnerMessage;//output
-		MorraPart2 myMorraPart2;
-
-			public MorraPart2Play() {//constructor - initialise the variables
-
-				side="";
-				message="";
-				userNumber=0;
-				sumPMarks=0;
-				sumCMarks=0;
-				randNumber=0;
-				replay="";
-				winnerMessage="";
-				myMorraPart2=new MorraPart2();
-			}
+	
+		//objects
+		MorraPart2 myMorraPart2=new MorraPart2();
 
 			public int play() {
 				//the game will run until the user decides to stop
