@@ -53,7 +53,7 @@ public class MorraPart2{
 		side="";
 		userNumber=0;
 		replay="";
-		rand = new Random();
+		rand=new Random();
 		randNumber=0;
 		sumRound=0;
 		cRMarks=0;
@@ -64,7 +64,7 @@ public class MorraPart2{
 	   	indexC=0;
 	   	won=0;
 	  	lost=0;
-	    	evenP=0;
+	    evenP=0;
 		oddP=0;
 		evenC=0;
 		oddC=0;
@@ -102,7 +102,7 @@ public class MorraPart2{
 			//Player Won! Send 1 to computePoints
 			computePoints(1);
 
-		} else if(side.equalsIgnoreCase("even") && sumRound%2!=0) {
+		} else if(side.equalsIgnoreCase("even") && sumRound%2!=0){
 
 			//Player Lost! Send 0 to computePoints
 			computePoints(0);
@@ -114,7 +114,7 @@ public class MorraPart2{
 			//Player Won! Send 1 to computePoints
 			computePoints(1);
 
-		} else if(side.equalsIgnoreCase("odd") && sumRound%2==0) {
+		} else if(side.equalsIgnoreCase("odd") && sumRound%2==0){
 
 			//Player Lost! Send 0 to computePoints
 			computePoints(0);
@@ -126,7 +126,7 @@ public class MorraPart2{
 		//calling history array
 		getHistory(userNumber, randNumber, indexC);
 		indexC++;
-		
+
 		// if statement to declare the winner and their scores
 		if(sumPMarks>=12){
 			winnerMessage="Player wins the Game with "+sumPMarks+" points"+"\nComputer loses the Game with "+sumCMarks+" points\n";
@@ -136,7 +136,7 @@ public class MorraPart2{
 		}
 	}
 	//resets the scores to 0 when the game is replayed
-	public void reset() { 
+	public void reset(){
 		sumPMarks=0;
 		sumCMarks=0;
 		indexC=0;
@@ -151,9 +151,9 @@ public class MorraPart2{
 	}
 
 	//holds result for history array - do we need to create result variable?
-	public void computePoints(int result) {
+	public void computePoints(int result){
 
-		if (result == 1) {
+		if(result == 1){
 			//bigger the number, the closer to the sum i.e win extra points
 			if(userNumber>randNumber){
 				message="You win 5 points!";
@@ -161,34 +161,34 @@ public class MorraPart2{
 				pRMarks=3+EXTPOINTS;
 				cRMarks=0;
 				totalPExtra+=2;
-			} else if (randNumber>userNumber) {
+			} else if(randNumber>userNumber){
 				message="You win 3 points!";
 				won++;
 				pRMarks=3;
 				cRMarks=EXTPOINTS;
 				totalCExtra+=2;
-			} else {
+			} else{
 				message="You win 3 points!";
 				won++;
 				pRMarks=3;
 				cRMarks=0;
 			}
 
-		} else {
+		} else{
 
-			if(randNumber>userNumber) {
+			if(randNumber>userNumber){
 				message="Computer wins 5 points!";
 				lost++;
 				cRMarks=3+EXTPOINTS;
 				pRMarks=0;
 				totalCExtra+=2;
-			} else if (userNumber>randNumber) {
+			} else if(userNumber>randNumber){
 				message="Computer wins 3 points!";
 				lost++;
 				cRMarks=3;
 				pRMarks=EXTPOINTS;
 				totalPExtra+=2;
-			} else {
+			} else{
 				message="Computer wins 3 points!";
 				lost++;
 				cRMarks=3;
@@ -199,29 +199,29 @@ public class MorraPart2{
 
 	//history array
 	public void getHistory(int player, int comp, int indexC){
-		int i = 0;
+		int i=0;
 		arrHist[indexC][i]=player;
 		i++;
 		arrHist[indexC][i]=comp;
 
-		if (player % 2 == 0) {
+		if(player % 2 == 0){
 			evenP++;
-		} else {
+		} else{
 			oddP++;
 		}
 
 		if (comp % 2 == 0){
 			evenC++;
-		} else {
+		} else{
 			oddC++;
 		}
 	}
 
 	public String displayHist(int arrHist[][], int round){
 		String output="";
-		for (int x=0; x<round; x++){
+		for(int x=0; x<round; x++){
 			for(int j= 0; j<2; j++){
-				if (j==0) {
+				if(j==0){
 		    		output += "Round "+ (x+1) + ": Player "+ Integer.toString(arrHist[x][j]) +" -";
 				} else{
 					output += " Comp ";
@@ -247,9 +247,9 @@ public class MorraPart2{
 		return output;
 	}
 
-	public void finalHist() {
+	public void finalHist(){
 
-		String finalHistLog = "";
+		String finalHistLog="";
 
 		/*Array containing the result of Rounds won/lost Per Game.
 		Column: 0 Player won, 1 Player lost*/
@@ -267,9 +267,9 @@ public class MorraPart2{
 		int ind = 0;
 
 		//For loop to populate arrHist arrays with data from List Arrays
-		for(int i=0; i < gameCounter; i++) {
+		for(int i=0; i < gameCounter; i++){
 
-			int j = 0;
+			int j=0;
 
 			arrHistResult[i][j]=arrRndWList.get(ind);
 			arrHistOE[i][j]=arrEvenPList.get(ind);
@@ -292,7 +292,7 @@ public class MorraPart2{
 
 		//for loop to append finalHistLog String with data from arrHist
 		finalHistLog += "History of Games\n\n";
-		for(int i=0; i<gameCounter; i++) {
+		for(int i=0; i<gameCounter; i++){
 
 			finalHistLog += "Game " + (i+1) + "\n";
 
