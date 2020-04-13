@@ -4,7 +4,6 @@ Group F
 20 3 2020
 */
 
-import javax.swing.*;
 public class MorraPart2App{
 
 	public static void main(String args[]){

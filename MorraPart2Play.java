@@ -19,8 +19,7 @@ public class MorraPart2Play{
 
 		//objects
 		MorraPart2 myMorraPart2=new MorraPart2();
-	
-		
+
 			public int play(){
 				//the game will run until the user decides to stop
 				do{
@@ -44,9 +43,9 @@ public class MorraPart2Play{
 				replay=JOptionPane.showInputDialog("Do you want to play again?");
 				myMorraPart2.setReplay(replay);
 				if(enterReplay(replay)){//resets the scores and replays the game if user chooses to play again
-					side="";
-					message="";
-					userNumber=0;
+					side="";//input
+					message="";//output
+					userNumber=0;//input
 					sumPMarks=0;
 					sumCMarks=0;
 					randNumber=0;
@@ -61,7 +60,7 @@ public class MorraPart2Play{
 				}
 			}
 
-			//function to validade the user input (yes or no) at the end of each game
+			//function to validate the user input (yes or no) at the end of each game
 			private boolean enterReplay(String replay) {
 
 				while(true){
@@ -70,7 +69,7 @@ public class MorraPart2Play{
 						break;
 					}
 					//ask to insert the value again
-					replay = JOptionPane.showInputDialog("Invalid value. Please enter Yes or No!");
+					replay=JOptionPane.showInputDialog("Invalid value. Please enter Yes or No!");
 				}
 
 				if(replay.equalsIgnoreCase("yes")){

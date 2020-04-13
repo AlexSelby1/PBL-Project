@@ -150,7 +150,7 @@ public class MorraPart2{
 		totalCExtra=0;
 	}
 
-	//holds result for history array - do we need to create result variable?
+	//holds result for history array
 	public void computePoints(int result){
 
 		if(result == 1){
