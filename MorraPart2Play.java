@@ -19,7 +19,8 @@ public class MorraPart2Play{
 
 		//objects
 		MorraPart2 myMorraPart2=new MorraPart2();
-
+	
+		
 			public int play(){
 				//the game will run until the user decides to stop
 				do{
@@ -43,9 +44,9 @@ public class MorraPart2Play{
 				replay=JOptionPane.showInputDialog("Do you want to play again?");
 				myMorraPart2.setReplay(replay);
 				if(enterReplay(replay)){//resets the scores and replays the game if user chooses to play again
-					side="";//input
-					message="";//output
-					userNumber=0;//input
+					side="";
+					message="";
+					userNumber=0;
 					sumPMarks=0;
 					sumCMarks=0;
 					randNumber=0;
