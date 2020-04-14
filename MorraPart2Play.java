@@ -7,7 +7,7 @@ Group F
 import javax.swing.*;//bring in JOptionPane
 public class MorraPart2Play{
 
-	//variable
+		//variable
 		String side;//input - choose side
 		int userNumber;//input - choose number
 		int randNumber;//process - random number generated
@@ -19,7 +19,7 @@ public class MorraPart2Play{
 
 		//objects
 		MorraPart2 myMorraPart2=new MorraPart2();
-
+			//process
 			public int play(){
 				//the game will run until the user decides to stop
 				do{
@@ -36,9 +36,10 @@ public class MorraPart2Play{
 					}
 				}
 				while(!side.equalsIgnoreCase("stop") && sumCMarks<12 && sumPMarks<12);//condition to stop the game at any time
+				//gets history array from instan class and outputs to user after a game
 				winnerMessage=myMorraPart2.getWinnerMessage();
-				winnerMessage +="\n";
-				winnerMessage +=myMorraPart2.getHist();
+				winnerMessage+="\n";
+				winnerMessage+=myMorraPart2.getHist();
 				JOptionPane.showMessageDialog(null, winnerMessage);
 				replay=JOptionPane.showInputDialog("Do you want to play again?");
 				myMorraPart2.setReplay(replay);
@@ -59,10 +60,8 @@ public class MorraPart2Play{
 					return 1;
 				}
 			}
-
 			//function to validate the user input (yes or no) at the end of each game
 			private boolean enterReplay(String replay) {
-
 				while(true){
 					//if input is anything different than Yes or No continue loop until otherwise
 					if(replay.equalsIgnoreCase("yes") || replay.equalsIgnoreCase("no")){
@@ -71,7 +70,6 @@ public class MorraPart2Play{
 					//ask to insert the value again
 					replay=JOptionPane.showInputDialog("Invalid value. Please enter Yes or No!");
 				}
-
 				if(replay.equalsIgnoreCase("yes")){
 					//if input is Yes
 					return true;
@@ -86,11 +84,8 @@ public class MorraPart2Play{
 				userNumber=Integer.parseInt(JOptionPane.showInputDialog(null, "Please, choose between 1 to 10: "));
 					if(userNumber>=1 && userNumber<=10){//ensure number is between 1 and 10
 						myMorraPart2.setUserNumber(userNumber);
-
-						//process
-						myMorraPart2.compute();
-
-						//output
+						myMorraPart2.compute();//distributes points from compute method in instan class
+						//outputs
 						message=myMorraPart2.getMessage();
 						randNumber=myMorraPart2.getRandNumber();
 						sumPMarks=myMorraPart2.getSumPMarks();
