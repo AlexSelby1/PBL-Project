@@ -64,7 +64,7 @@ public class MorraPart2{
 	   	indexC=0;
 	   	won=0;
 	  	lost=0;
-	    evenP=0;
+		evenP=0;
 		oddP=0;
 		evenC=0;
 		oddC=0;
@@ -90,7 +90,7 @@ public class MorraPart2{
 	this.replay=replay;
 	}
 
-	//process
+	//compute
 	public void compute(){
 		randNumber=rand.nextInt(10-1)+1;//creating random number generator
 		sumRound=userNumber+randNumber;
@@ -149,10 +149,9 @@ public class MorraPart2{
 		totalPExtra=0;
 		totalCExtra=0;
 	}
-
+	
 	//holds result for history array
 	public void computePoints(int result){
-
 		if(result == 1){
 			//bigger the number, the closer to the sum i.e win extra points
 			if(userNumber>randNumber){
@@ -243,7 +242,7 @@ public class MorraPart2{
 		arrPExtra.add(totalPExtra);
 		arrCExtra.add(totalCExtra);
 		gameCounter++;
-	    output += "\n";
+	        output += "\n";
 		return output;
 	}
 
@@ -296,13 +295,11 @@ public class MorraPart2{
 
 			finalHistLog += "Game " + (i+1) + "\n";
 
-			finalHistLog += "Player Rounds: Won " + arrHistResult[i][c0] + " - Lost " + arrHistResult[i][c1] + "\n";
-			finalHistLog += "Extra Points: Player " + arrHistEXTPOINTS[i][c0] + " - Comp " + arrHistEXTPOINTS[i][c1] + "\n";
-			finalHistLog += "Number of Even numbers played by: Player " + arrHistOE[i][c0] + " - Comp "+arrHistOE[i][c2] + "\n";
-			finalHistLog += "Number of Odd numbers played by: Player " + arrHistOE[i][c1] +" - Comp "+arrHistOE[i][c3]+"\n\n";
-
+			finalHistLog+="Player Rounds: Won "+arrHistResult[i][c0]+" - Lost " + arrHistResult[i][c1]+"\n";
+			finalHistLog+="Extra Points: Player "+arrHistEXTPOINTS[i][c0]+" - Comp "+arrHistEXTPOINTS[i][c1]+"\n";
+			finalHistLog+="Number of Even numbers played by: Player "+arrHistOE[i][c0]+" - Comp "+arrHistOE[i][c2]+"\n";
+			finalHistLog+="Number of Odd numbers played by: Player "+arrHistOE[i][c1]+" - Comp "+arrHistOE[i][c3]+"\n\n";
 		}
-
 		JOptionPane.showMessageDialog(null, finalHistLog);
 	}
 
@@ -321,7 +318,7 @@ public class MorraPart2{
 		return sumCMarks;
 	}
 	public int getRandNumber(){
-	return randNumber;
+		return randNumber;
 	}
 	public String getHist(){
 		return displayHist(arrHist, indexC);
